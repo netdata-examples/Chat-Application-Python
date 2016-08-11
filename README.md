@@ -6,9 +6,9 @@ Bu çalışmanın amacı Netdata üzerinden yapabileceklerinizin bir sınırın�
 Netdata size birden fazla veri çekme yöntemi sunmaktadır. XML,JSON,SOAP Webservice ve IFRAME size sunduğumuz veri çekme yöntemleridir. Biz SOAP Webservice ile bağlantı kuracağız ve bunu için gerekli tanımlamaları static olarak programımıza yazacağız.
 #Bağlantının Kurulması
 Bağlantının kurulması için öncelikle global olarak xml isminde (veya istenilen bir isimde ) bir değişken oluşturulmalıdır. değişkenin global olarak oluşturulmasının sebebi bu değişkenle ile hem veri alacağız hem de veri göndereceğiz ve veri gönderme işlemi farklı fonksiyonlar tarafından da yapılabileceği için xml değişkeni global tanımlanmalıdır. Daha sonra request fonksiyonuna benzer bir fonksiyon hazırlanmalıdır. Bu fonksiyonda req = XML.replace('#kullaniciAdi#', Ui_MainWindow.kullaniciAdi).replace('#mesaj#', mesaj).replace('#AccPoApikodu#',                                                                                                             Ui_MainWindow.AccPoApikodu) burada oluşturduğumuz projenin AccPo Api kodunu ve xml verilerine ulaşmak için xml Api kodunu elle girememiz gerekmektedir.
-Daha sonra request ile başlayan tüm fonsiyonlar GUI classımızın içinde oluşturulan def baglantıKur() fonksiyonu içerisinde yazılmalıdır.
+Daha sonra request ile başlayan tüm fonsiyonlar GUI classımızın içinde oluşturulan def baglantiKur() fonksiyonu içerisinde yazılmalıdır.
 ```
-def baglantıKur():
+def baglantiKur():
   req = XML.replace('#kullaniciAdi#',kullaniciAdi).replace('#mesaj#',mesaj).replace('#AccPoApikodu#',AccPoApikodu)
   cnn = httplib.HTTPConnection(HOST)
   cnn.request('POST', PAGE, req, HEADERS)
